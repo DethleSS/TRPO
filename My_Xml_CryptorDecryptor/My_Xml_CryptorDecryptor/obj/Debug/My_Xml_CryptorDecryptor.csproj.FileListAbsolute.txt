@@ -1,0 +1,8 @@
+C:\Users\Xiaomi\Desktop\My_Xml_CryptorDecryptor\My_Xml_CryptorDecryptor\bin\Debug\My_Xml_CryptorDecryptor.exe
+C:\Users\Xiaomi\Desktop\My_Xml_CryptorDecryptor\My_Xml_CryptorDecryptor\bin\Debug\My_Xml_CryptorDecryptor.pdb
+C:\Users\Xiaomi\Desktop\My_Xml_CryptorDecryptor\My_Xml_CryptorDecryptor\obj\Debug\My_Xml_CryptorDecryptor.csprojAssemblyReference.cache
+C:\Users\Xiaomi\Desktop\My_Xml_CryptorDecryptor\My_Xml_CryptorDecryptor\obj\Debug\My_Xml_CryptorDecryptor.Form1.resources
+C:\Users\Xiaomi\Desktop\My_Xml_CryptorDecryptor\My_Xml_CryptorDecryptor\obj\Debug\My_Xml_CryptorDecryptor.Properties.Resources.resources
+C:\Users\Xiaomi\Desktop\My_Xml_CryptorDecryptor\My_Xml_CryptorDecryptor\obj\Debug\My_Xml_CryptorDecryptor.csproj.GenerateResource.cache
+C:\Users\Xiaomi\Desktop\My_Xml_CryptorDecryptor\My_Xml_CryptorDecryptor\obj\Debug\My_Xml_CryptorDecryptor.exe
+C:\Users\Xiaomi\Desktop\My_Xml_CryptorDecryptor\My_Xml_CryptorDecryptor\obj\Debug\My_Xml_CryptorDecryptor.pdb
