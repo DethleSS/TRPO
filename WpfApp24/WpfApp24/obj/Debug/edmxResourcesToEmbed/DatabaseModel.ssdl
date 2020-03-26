@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ChessClubModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clubs">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="int" Nullable="false" />
+    <Property Name="c_name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="g_id" />
+    </Key>
+    <Property Name="g_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="g_date" Type="date" />
+    <Property Name="g_tournament" Type="int" />
+    <Property Name="first_player" Type="int" Nullable="false" />
+    <Property Name="second_player" Type="int" Nullable="false" />
+    <Property Name="g_who_win" Type="int" />
+  </EntityType>
+  <EntityType Name="Players">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_age" Type="int" />
+    <Property Name="p_name" Type="varchar" MaxLength="255" />
+    <Property Name="p_rank" Type="int" />
+    <Property Name="p_club" Type="int" />
+    <Property Name="p_power_play" Type="int" />
+  </EntityType>
+  <EntityType Name="Ranks">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="int" Nullable="false" />
+    <Property Name="r_rank" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Tournaments">
+    <Key>
+      <PropertyRef Name="t_id" />
+    </Key>
+    <Property Name="t_id" Type="int" Nullable="false" />
+    <Property Name="t_name" Type="varchar" MaxLength="255" />
+    <Property Name="t_time_start" Type="datetime" />
+    <Property Name="t_time_end" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__Games__first_pla__412EB0B6">
+    <End Role="Players" Type="Self.Players" Multiplicity="1" />
+    <End Role="Games" Type="Self.Games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="first_player" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Games__g_tournam__4316F928">
+    <End Role="Tournaments" Type="Self.Tournaments" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Games" Type="Self.Games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tournaments">
+        <PropertyRef Name="t_id" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="g_tournament" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Games__second_pl__4222D4EF">
+    <End Role="Players" Type="Self.Players" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Games" Type="Self.Games" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="second_player" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Players__p_club__3D5E1FD2">
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clubs">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="p_club" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Players__p_rank__3E52440B">
+    <End Role="Ranks" Type="Self.Ranks" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ranks">
+        <PropertyRef Name="r_id" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="p_rank" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ChessClubModelContainer">
+    <EntitySet Name="Clubs" EntityType="Self.Clubs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ranks" EntityType="Self.Ranks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tournaments" EntityType="Self.Tournaments" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Games__first_pla__412EB0B6" Association="Self.FK__Games__first_pla__412EB0B6">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__g_tournam__4316F928" Association="Self.FK__Games__g_tournam__4316F928">
+      <End Role="Tournaments" EntitySet="Tournaments" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__second_pl__4222D4EF" Association="Self.FK__Games__second_pl__4222D4EF">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Players__p_club__3D5E1FD2" Association="Self.FK__Players__p_club__3D5E1FD2">
+      <End Role="Clubs" EntitySet="Clubs" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Players__p_rank__3E52440B" Association="Self.FK__Players__p_rank__3E52440B">
+      <End Role="Ranks" EntitySet="Ranks" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChessClubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Club">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK__Players__p_club__3D5E1FD2" FromRole="Clubs" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="TournamentId" Type="Int32" />
+    <Property Name="FirstPlayerId" Type="Int32" Nullable="false" />
+    <Property Name="SecondPlayerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FirstPlayer" Relationship="Self.FK__Games__first_pla__412EB0B6" FromRole="Games" ToRole="Players" />
+    <NavigationProperty Name="Tournament" Relationship="Self.FK__Games__g_tournam__4316F928" FromRole="Games" ToRole="Tournaments" />
+    <NavigationProperty Name="SecondPlayer" Relationship="Self.FK__Games__second_pl__4222D4EF" FromRole="Games" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RankId" Type="Int32" />
+    <Property Name="ClubId" Type="Int32" />
+    <Property Name="PowerPlay" Type="Int32" />
+    <NavigationProperty Name="Club" Relationship="Self.FK__Players__p_club__3D5E1FD2" FromRole="Players" ToRole="Clubs" />
+    <NavigationProperty Name="FirstGames" Relationship="Self.FK__Games__first_pla__412EB0B6" FromRole="Players" ToRole="Games" />
+    <NavigationProperty Name="SecondGames" Relationship="Self.FK__Games__second_pl__4222D4EF" FromRole="Players" ToRole="Games" />
+    <NavigationProperty Name="Rank" Relationship="Self.FK__Players__p_rank__3E52440B" FromRole="Players" ToRole="Ranks" />
+  </EntityType>
+  <EntityType Name="Rank">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Rank_" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK__Players__p_rank__3E52440B" FromRole="Ranks" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="Tournaments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TimeStart" Type="DateTime" Precision="3" />
+    <Property Name="TimeEnd" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Games" Relationship="Self.FK__Games__g_tournam__4316F928" FromRole="Tournaments" ToRole="Games" />
+  </EntityType>
+  <Association Name="FK__Players__p_club__3D5E1FD2">
+    <End Role="Clubs" Type="ChessClubModel.Club" Multiplicity="0..1" />
+    <End Role="Players" Type="ChessClubModel.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clubs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="ClubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Games__first_pla__412EB0B6">
+    <End Role="Players" Type="ChessClubModel.Player" Multiplicity="1" />
+    <End Role="Games" Type="ChessClubModel.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="FirstPlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Games__g_tournam__4316F928">
+    <End Role="Tournaments" Type="Self.Tournaments" Multiplicity="0..1" />
+    <End Role="Games" Type="ChessClubModel.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tournaments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="TournamentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Games__second_pl__4222D4EF">
+    <End Role="Players" Type="ChessClubModel.Player" Multiplicity="1" />
+    <End Role="Games" Type="ChessClubModel.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="SecondPlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Players__p_rank__3E52440B">
+    <End Role="Ranks" Type="ChessClubModel.Rank" Multiplicity="0..1" />
+    <End Role="Players" Type="ChessClubModel.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ranks">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="RankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clubs" EntityType="ChessClubModel.Club" />
+    <EntitySet Name="Games" EntityType="ChessClubModel.Game" />
+    <EntitySet Name="Players" EntityType="ChessClubModel.Player" />
+    <EntitySet Name="Ranks" EntityType="ChessClubModel.Rank" />
+    <EntitySet Name="Tournaments" EntityType="Self.Tournaments" />
+    <AssociationSet Name="FK__Players__p_club__3D5E1FD2" Association="Self.FK__Players__p_club__3D5E1FD2">
+      <End Role="Clubs" EntitySet="Clubs" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__first_pla__412EB0B6" Association="Self.FK__Games__first_pla__412EB0B6">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__g_tournam__4316F928" Association="Self.FK__Games__g_tournam__4316F928">
+      <End Role="Tournaments" EntitySet="Tournaments" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__second_pl__4222D4EF" Association="Self.FK__Games__second_pl__4222D4EF">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Players__p_rank__3E52440B" Association="Self.FK__Players__p_rank__3E52440B">
+      <End Role="Ranks" EntitySet="Ranks" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

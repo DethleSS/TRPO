@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ChessClubModelContainer" CdmEntityContainer="DBContext">
+    <EntitySetMapping Name="Clubs">
+      <EntityTypeMapping TypeName="ChessClubModel.Club">
+        <MappingFragment StoreEntitySet="Clubs">
+          <ScalarProperty Name="Id" ColumnName="c_id" />
+          <ScalarProperty Name="Name" ColumnName="c_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Games">
+      <EntityTypeMapping TypeName="ChessClubModel.Game">
+        <MappingFragment StoreEntitySet="Games">
+          <ScalarProperty Name="Id" ColumnName="g_id" />
+          <ScalarProperty Name="Date" ColumnName="g_date" />
+          <ScalarProperty Name="TournamentId" ColumnName="g_tournament" />
+          <ScalarProperty Name="FirstPlayerId" ColumnName="first_player" />
+          <ScalarProperty Name="SecondPlayerId" ColumnName="second_player" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="ChessClubModel.Player">
+        <MappingFragment StoreEntitySet="Players">
+          <ScalarProperty Name="Id" ColumnName="p_id" />
+          <ScalarProperty Name="Age" ColumnName="p_age" />
+          <ScalarProperty Name="Name" ColumnName="p_name" />
+          <ScalarProperty Name="RankId" ColumnName="p_rank" />
+          <ScalarProperty Name="ClubId" ColumnName="p_club" />
+          <ScalarProperty Name="PowerPlay" ColumnName="p_power_play" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ranks">
+      <EntityTypeMapping TypeName="ChessClubModel.Rank">
+        <MappingFragment StoreEntitySet="Ranks">
+          <ScalarProperty Name="Id" ColumnName="r_id" />
+          <ScalarProperty Name="Rank_" ColumnName="r_rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tournaments">
+      <EntityTypeMapping TypeName="ChessClubModel.Tournaments">
+        <MappingFragment StoreEntitySet="Tournaments">
+          <ScalarProperty Name="Id" ColumnName="t_id" />
+          <ScalarProperty Name="Name" ColumnName="t_name" />
+          <ScalarProperty Name="TimeStart" ColumnName="t_time_start" />
+          <ScalarProperty Name="TimeEnd" ColumnName="t_time_end" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
