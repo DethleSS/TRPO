@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp24"
         mc:Ignorable="d"
         Title="Authorization" Height="450" Width="800">
-    <Grid Margin="10">
+    <Grid Background="DeepSkyBlue">
         
         <Grid.RowDefinitions>
             
@@ -23,9 +23,6 @@
             <Button IsDefault="True" Click="Accept_Click" MinWidth="60" Margin="0,0,10,0">OK</Button>
             <Button IsCancel="True" MinWidth="60">Отмена</Button>
         </WrapPanel>
-        <Grid.Background>
-            <ImageBrush ImageSource="27.png"></ImageBrush>
-        </Grid.Background>
 
     </Grid>
 </Window>

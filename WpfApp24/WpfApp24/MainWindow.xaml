@@ -5,64 +5,110 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp24"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="OptimalFlight" Height="450" Width="800">
+    <Grid Background="DeepSkyBlue">
         <StackPanel>
-            <Button Background="Blue" Content="1" Height="49">
-                <Button.ToolTip>
-                    <StackPanel>
-                        <Label>ChangeText</Label>
-                        <Image Source="frame.jpg" Width="100" Height="100"/>
-                    </StackPanel>
-                </Button.ToolTip>
-            </Button>
-            
-            <Button Background="Pink" Content="3" Height="49" >
-                <Button.ToolTip>
-                    <StackPanel>
-                        <Label>Test</Label>
-                        <Image Source="math.jpg"  Width="100" Height="100"/>
-                    </StackPanel>
-                </Button.ToolTip>
-            </Button>
-            
-            <Button Background="Red" Content="5" Height="49" >
-                <Button.ToolTip>
-                    <StackPanel>
-                        <Label>DataBase</Label>
-                        <Image Source="DB.png"  Width="100" Height="100"/>
-                    </StackPanel>
-                </Button.ToolTip>
-            </Button>
-            
-            <Button Background="Green" Content="2" Height="49">
-                <Button.ToolTip>
-                    <StackPanel>
-                        <Label>Create object</Label>
-                        <Image Source="Object-holding-page.png"  Width="100" Height="100"/>
-                    </StackPanel>
-                </Button.ToolTip>
-            </Button>
-            
-            <Button Background="Yellow" Content="4" Height="49" Click="Button_Click_4">
-                <Button.ToolTip>
-                    <StackPanel>
-                        <Label>Graphics</Label>
-                        <Image Source="PowerToys_Plot3D.jpg" Width="100" Height="100"/>
-                    </StackPanel>
-                </Button.ToolTip>
-            </Button>
+            <Button Content="Купленные билеты" Click="Ticket_click"  Height="30" Margin="650,10,10,0" Background="Orange"/>
+            <TextBlock Text="Поиск дешевых авиабилетов" FontSize="30" Foreground="White" TextDecorations=""  Margin="190,90,188,0"/>
+            <TextBlock Text="Лучший способ купить авиабилеты дешево" FontSize="15" Foreground="White" Margin="250,0,233,0"/>
 
-            <Button Background="Purple" Content="6" Height="49" Click="Button_Click_6">
-                <Button.ToolTip>
-                    <StackPanel>
-                        <Label>Articles</Label>
-                    </StackPanel>
-                </Button.ToolTip>
-            </Button>
-            <Button Height="76" Content="Авторизация" Click="Login_Click" RenderTransformOrigin="2.446,1.209" Margin="10,0" />
+            <ComboBox Name="countryDeparture" Height="30" Text="Куда"  Margin="270,20,260,0" IsEditable="True">
+                <TextBlock>Австрия</TextBlock>
+                <TextBlock>Беларусь</TextBlock>
+                <TextBlock>Болгария</TextBlock>
+                <TextBlock>Ватикан</TextBlock>
+                <TextBlock>Великобритания</TextBlock>
+                <TextBlock>Венгрия</TextBlock>
+                <TextBlock>Германия</TextBlock>
+                <TextBlock>Греция</TextBlock>
+                <TextBlock>Ирландия</TextBlock>
+                <TextBlock>Испания</TextBlock>
+                <TextBlock>Италия</TextBlock>
+                <TextBlock>Латвия</TextBlock>
+                <TextBlock>Литва</TextBlock>
+                <TextBlock>Молдавия</TextBlock>
+                <TextBlock>Нидерланды</TextBlock>
+                <TextBlock>Норвегия</TextBlock>
+                <TextBlock>Польша</TextBlock>
+                <TextBlock>Португалия</TextBlock>
+                <TextBlock>Россия</TextBlock>
+                <TextBlock>Румыния</TextBlock>
+                <TextBlock>Сербия</TextBlock>
+                <TextBlock>Словакия</TextBlock>
+                <TextBlock>Словения</TextBlock>
+                <TextBlock>Украина</TextBlock>
+                <TextBlock>Финляндия</TextBlock>
+                <TextBlock>Франция</TextBlock>
+                <TextBlock>Хорватия</TextBlock>
+                <TextBlock>Черногория</TextBlock>
+                <TextBlock>Чехия</TextBlock>
+                <TextBlock>Швейцария</TextBlock>
+                <TextBlock>Эстония</TextBlock>
+            </ComboBox>
+
+            <ComboBox Name="countryArrival" Height="30" Text="Откуда" Margin="270,0,260,0" IsEditable="True">
+                <TextBlock>Австрия</TextBlock>
+                <TextBlock>Беларусь</TextBlock>
+                <TextBlock>Болгария</TextBlock>
+                <TextBlock>Ватикан</TextBlock>
+                <TextBlock>Великобритания</TextBlock>
+                <TextBlock>Венгрия</TextBlock>
+                <TextBlock>Германия</TextBlock>
+                <TextBlock>Греция</TextBlock>
+                <TextBlock>Ирландия</TextBlock>
+                <TextBlock>Испания</TextBlock>
+                <TextBlock>Италия</TextBlock>
+                <TextBlock>Латвия</TextBlock>
+                <TextBlock>Литва</TextBlock>
+                <TextBlock>Молдавия</TextBlock>
+                <TextBlock>Нидерланды</TextBlock>
+                <TextBlock>Норвегия</TextBlock>
+                <TextBlock>Польша</TextBlock>
+                <TextBlock>Португалия</TextBlock>
+                <TextBlock>Россия</TextBlock>
+                <TextBlock>Румыния</TextBlock>
+                <TextBlock>Сербия</TextBlock>
+                <TextBlock>Словакия</TextBlock>
+                <TextBlock>Словения</TextBlock>
+                <TextBlock>Украина</TextBlock>
+                <TextBlock>Финляндия</TextBlock>
+                <TextBlock>Франция</TextBlock>
+                <TextBlock>Хорватия</TextBlock>
+                <TextBlock>Черногория</TextBlock>
+                <TextBlock>Чехия</TextBlock>
+                <TextBlock>Швейцария</TextBlock>
+                <TextBlock>Эстония</TextBlock>
+            </ComboBox>
+
+            <ComboBox Name="countPass" Height="30" Text="Кол-во пассажиров" Margin="270,0,260,0" IsEditable="True">
+                <TextBlock>1</TextBlock>
+                <TextBlock>2</TextBlock>
+                <TextBlock>3</TextBlock>
+                <TextBlock>4</TextBlock>
+                <TextBlock>5</TextBlock>
+                <TextBlock>6</TextBlock>
+                <TextBlock>7</TextBlock>
+                <TextBlock>8</TextBlock>
+                <TextBlock>9</TextBlock>
+            </ComboBox>
+
+            <ComboBox Name="classFlight" Height="30" Text="Класс" Margin="270,0,260,0" IsEditable="True">
+                <TextBlock>Эконом-класс</TextBlock>
+                <TextBlock>Бизнес-класс</TextBlock>
+                <TextBlock>Первый класс</TextBlock>
+            </ComboBox>
+
+
+            <Button Content="Найти билеты" Click="SearchClick" Height="30" Margin="300,10,290,0" Background="Orange"/>
+
+            
+
+            
+            
         </StackPanel>
 
+
+
+        <Button Content="Авторизация" Click="Login_Click" Margin="10,382,10,10" />
     </Grid>
 </Window>

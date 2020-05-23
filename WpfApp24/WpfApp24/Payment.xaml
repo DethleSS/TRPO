@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApp24.Payment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp24"
+        mc:Ignorable="d"
+        Title="Payment" Height="450" Width="800">
+    <Grid Background="DeepSkyBlue">
+        <StackPanel>
+            <TextBlock Foreground="White" Text="Оплата" FontSize="35" Margin="340,0,335,0"/>
+            <TextBox FontSize="20" Margin="200,30,200,0">Номер карты</TextBox>
+            <TextBox FontSize="20" Margin="200,0,200,0">Фамилия</TextBox>
+            <TextBox FontSize="20" Margin="200,0,200,0">Дата</TextBox>
+            <TextBox FontSize="20" Margin="200,0,200,0">Секретный код</TextBox>
+            <Button Click="ClickButtonPay"  Content="Купить" Background="Orange" FontSize="30" Margin="340,100,335,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

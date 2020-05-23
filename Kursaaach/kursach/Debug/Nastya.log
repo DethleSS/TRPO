@@ -1,0 +1,6 @@
+﻿  AddAdForm.cpp
+  MyForm.cpp
+C:\Users\Xiaomi\Desktop\Новая папка\Kursach\Nastya\MyForm.cpp(26,13): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+  Создание кода...
+  AddAdForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Nastya.vcxproj -> C:\Users\Xiaomi\Desktop\Новая папка\Kursach\Debug\kursach.exe

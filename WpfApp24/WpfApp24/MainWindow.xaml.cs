@@ -29,41 +29,7 @@ namespace WpfApp24
             InitializeComponent();
         }
 
-        public void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Task_22 a = new Task_22();
-            a.Show();
-        }
 
-        public void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            TaskWindow taskWindow = new TaskWindow();
-            taskWindow.Show();
-        }
-
-        public void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            MathimathicTest a = new MathimathicTest();
-            a.Show();
-        }
-
-        public void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            Graphics g = new Graphics();
-            g.Show();
-        }
-
-        public void Button_Click_5(object sender, RoutedEventArgs e)
-        {
-            DBForms.AllPlayers wnd = new DBForms.AllPlayers();
-            wnd.Show();
-        }
-
-        public void Button_Click_6(object sender, RoutedEventArgs e)
-        {
-            Articles a = new Articles();
-            a.Show();
-        }
 
         public void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -71,7 +37,7 @@ namespace WpfApp24
 
             if (passwordWindow.ShowDialog() == true)
             {
-                if (passwordWindow.Password == "ГромГей")
+                if (passwordWindow.Password == "Air")
                     MessageBox.Show("Авторизация пройдена");
                 else
                     MessageBox.Show("Неверный пароль");
@@ -82,16 +48,26 @@ namespace WpfApp24
             }
         }
 
-        public void Task_22(object sender, RoutedEventArgs e)
+        public void SearchClick(object sender, RoutedEventArgs e)
         {
-            Task_22 a = new Task_22();
-            a.ShowDialog();
+
+            SearchTicket tick = new SearchTicket
+            {
+                classFlight = classFlight.Text,
+                countPass = countPass.Text,
+                countryArrival = countryArrival.Text,
+                countryDeparture = countryDeparture.Text
+            };
+            tick.Show();
         }
 
-        public void MathimathicClick(object sender, RoutedEventArgs e)
+        public void Ticket_click(object sender, RoutedEventArgs e)
         {
-            MathimathicTest math = new MathimathicTest();
-            math.Show();
-        }        
+
+            DateBaseForms.AllTickets db = new DateBaseForms.AllTickets();
+            db.Show();
+        }
+
+
     }
 }

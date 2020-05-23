@@ -17,9 +17,6 @@ namespace WpfApp24
         {
             MainWindow wnd = new MainWindow();
             wnd.Show();
-
-            SplashScreen splashScreen = new SplashScreen("SplashScreen1.png");
-            splashScreen.Show(true);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WpfApp24.DBForms
+namespace WpfApp24.DateBaseForms
 {
     public class BaseCommand : ICommand
     {

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище AirFlightModelContainer" CdmEntityContainer="DataBaseContext">
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="AirFlightModel.Ticket">
+        <MappingFragment StoreEntitySet="Tickets">
+          <ScalarProperty Name="Id" ColumnName="t_id" />
+          <ScalarProperty Name="Number" ColumnName="t_number" />
+          <ScalarProperty Name="Name" ColumnName="t_name" />
+          <ScalarProperty Name="Surname" ColumnName="t_surname" />
+          <ScalarProperty Name="DepartureTime" ColumnName="t_departure_time" />
+          <ScalarProperty Name="ArrivalTime" ColumnName="t_Arrival_time" />
+          <ScalarProperty Name="FlightNumber" ColumnName="t_flight_number" />
+          <ScalarProperty Name="DeparturePlaces" ColumnName="t_departure_places" />
+          <ScalarProperty Name="ArrivalsPlaces" ColumnName="t_arrivals_places" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
